@@ -33,4 +33,4 @@ digest_template.write(temp_summary+ "\n")
 
 digest_template.close()
 
-call(["./sendmail.sh")
+call(["./sendmail.sh"])
