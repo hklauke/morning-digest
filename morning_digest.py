@@ -7,9 +7,10 @@ import sys
 import time
 from subprocess import call
 from selenium import webdriver
+from pyvirtualdisplay import Display
 
-#display = Display(visible=0, size=(1024,768))
-#display.start()
+display = Display(visible=0, size=(1024,768))
+display.start()
 
 browser = webdriver.Chrome()
 browser.get("https://darksky.net/forecast/35.0456,-85.3097/us12/en")

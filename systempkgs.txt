@@ -1,0 +1,3 @@
+google-chrome
+python-pip
+sendmail
