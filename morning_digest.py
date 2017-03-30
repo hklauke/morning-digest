@@ -28,9 +28,20 @@ temp_summary = temp_summary.encode('utf-8')
 
 digest_template = open("digest.txt", "w")
 digest_template.write(current_temp + "\n")
-digest_template.write(forecast+ "\n")
-digest_template.write(temp_summary+ "\n")
+digest_template.write(forecast + "\n")
+digest_template.write(temp_summary + "\n\n\n")
 
+browser.get("https://www.nytimes.com/column/learning-word-of-the-day")
+
+word_story = browser.find_element_by_css_selector(".story.theme-summary.no-thumb")
+word_story.click()
+word = browser.find_element_by_css_selector(".story-subheading.story-content").text
+word= word.encode('utf-8')
+definition = browser.find_element_by_css_selector(".story-quote.story-content").text
+definition = definition.encode('utf-8')
+
+digest_template.write("Word Of The Day!\n\n" + word + "\n" + definition + "\n\n")
 digest_template.close()
+browser.quit()
 
 call(["./sendmail.sh"])
