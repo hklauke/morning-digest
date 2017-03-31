@@ -12,8 +12,18 @@ from pyvirtualdisplay import Display
 display = Display(visible=0, size=(1024,768))
 display.start()
 
-browser = webdriver.Chrome()
+browser = webdriver.Chrome("./chromedriver")
 browser.get("https://darksky.net/forecast/35.0456,-85.3097/us12/en")
+
+todays_date  = time.strftime('%A %B %d')
+day = time.strftime('%d')
+day = int(day)
+if 4 <= day <= 20 or 24 <= day <= 30:
+    suffix = "th"
+else:
+    suffix = ["st", "nd", "rd"][day % 10 - 1]
+suffix = suffix.encode('utf-8')
+todays_date += suffix
 
 current_temp = browser.find_element_by_class_name("currently").text
 current_temp = current_temp.encode('utf-8')
@@ -28,6 +38,7 @@ temp_summary = "The high today is %s while the low today is %s" % (maxtemp, mint
 temp_summary = temp_summary.encode('utf-8')
 
 digest_template = open("digest.txt", "w")
+digest_template.write("Todays date is " +todays_date + "\n\n")
 digest_template.write(current_temp + "\n")
 digest_template.write(forecast + "\n")
 digest_template.write(temp_summary + "\n\n\n")
