@@ -56,4 +56,4 @@ digest_template.write("Word Of The Day!\n\n" + word + "\n" + definition + "\n\n"
 digest_template.close()
 browser.quit()
 
-call(["./sendmail.sh"])
+call(["/home/ubuntu/morning-digest/sendmail.sh"])
