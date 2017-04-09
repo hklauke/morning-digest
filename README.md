@@ -1,1 +1,1 @@
-So this is just a morning email digest that I'm going to be working on. Bascically just an email that I'm going to auto send to me that will grab weather information, interesting news article, a tech blog, or whatever I want to be informed about!
+So this is just a morning email digest that I'm going to be working on. It's basically just an email that I'm going to auto send to me that will grab weather information, interesting news article, a tech blog, or whatever I want to be informed about!
